@@ -1,4 +1,4 @@
-# ecg-analysis-web-platform
+# Yuluka-ECG: Plataforma Web para el Análisis Armónico de Señales
 Portafolio técnico de Bioingeniería II: Plataforma web híbrida para el procesamiento, análisis y visualización automática de señales ECG.
 
 ## 🚀 Descripción del Proyecto
