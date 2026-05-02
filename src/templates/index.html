@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Interactivo de ECG - 12 Derivaciones</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <h1>Monitor Clínico de ECG</h1>
+            <p>Análisis de Bioseñales - 12 Derivaciones Estándar</p>
+        </header>
+
+        <div class="panel-control">
+            <!-- SECCIÓN 1: SELECCIÓN DE PACIENTE -->
+            <div class="tarjeta">
+                <h3>1. Paciente (Base de Datos PTB)</h3>
+<select id="selectPTB">
+                    <optgroup label="Pacientes PTB-XL (Casos Verificados)">
+                        <option value="records500/00000/00001_hr">Paciente 01 - Ritmo Sinusal Normal</option>
+                        <option value="records500/00000/00002_hr">Paciente 02 - Anormalidad de Onda T</option>
+                        <option value="records500/00000/00003_hr">Paciente 03 - Infarto de Miocardio Ant.</option>
+                        <option value="records500/00000/00004_hr">Paciente 04 - Ritmo Sinusal Normal</option>
+                        <option value="records500/00000/00005_hr">Paciente 05 - Hipertrofia Ventricular</option>
+                        <option value="records500/00000/00006_hr">Paciente 06 - Normal</option>
+                        <option value="records500/00000/00007_hr">Paciente 07 - Desnivel del Segmento ST</option>
+                        <option value="records500/00000/00008_hr">Paciente 08 - Bloqueo de Rama Izquierda</option>
+                        <option value="records500/00000/00009_hr">Paciente 09 - Normal</option>
+                        <option value="records500/00000/00010_hr">Paciente 10 - Taquicardia Sinusal</option>
+                        <option value="records500/00000/00011_hr">Paciente 11 - Normal</option>
+                        <option value="records500/00000/00012_hr">Paciente 12 - Arritmia Generalizada</option>
+                    </optgroup>
+                </select>
+                <button id="btnCargar" class="btn-principal">Cargar Monitor</button>
+            </div>
+
+            <!-- SECCIÓN 2: SIMULACIÓN CLÍNICA -->
+            <div class="tarjeta tarjeta-simulacion">
+                <h3>2. Eventos de Urgencias</h3>
+                <button id="btnTemblor" class="btn-ruido">Simular Temblor (EMG)</button>
+                <button id="btnRespiracion" class="btn-ruido">Simular Agitación</button>
+                <button id="btnLimpio" class="btn-limpiar">Estabilizar Monitor</button>
+            </div>
+        </div>
+
+        <!-- EL MONITOR DE 12 CANALES -->
+        <div class="monitor-12-derivaciones">
+            <div class="contenedor-derivacion"><div class="etiqueta-derivacion">DI</div><canvas id="grafica_I"></canvas></div>
+            <div class="contenedor-derivacion"><div class="etiqueta-derivacion">aVR</div><canvas id="grafica_aVR"></canvas></div>
+            <div class="contenedor-derivacion"><div class="etiqueta-derivacion">V1</div><canvas id="grafica_V1"></canvas></div>
+            <div class="contenedor-derivacion"><div class="etiqueta-derivacion">V4</div><canvas id="grafica_V4"></canvas></div>
+            
+            <div class="contenedor-derivacion"><div class="etiqueta-derivacion">DII</div><canvas id="grafica_II"></canvas></div>
+            <div class="contenedor-derivacion"><div class="etiqueta-derivacion">aVL</div><canvas id="grafica_aVL"></canvas></div>
+            <div class="contenedor-derivacion"><div class="etiqueta-derivacion">V2</div><canvas id="grafica_V2"></canvas></div>
+            <div class="contenedor-derivacion"><div class="etiqueta-derivacion">V5</div><canvas id="grafica_V5"></canvas></div>
+            
+            <div class="contenedor-derivacion"><div class="etiqueta-derivacion">DIII</div><canvas id="grafica_III"></canvas></div>
+            <div class="contenedor-derivacion"><div class="etiqueta-derivacion">aVF</div><canvas id="grafica_aVF"></canvas></div>
+            <div class="contenedor-derivacion"><div class="etiqueta-derivacion">V3</div><canvas id="grafica_V3"></canvas></div>
+            <div class="contenedor-derivacion"><div class="etiqueta-derivacion">V6</div><canvas id="grafica_V6"></canvas></div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
